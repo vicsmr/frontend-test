@@ -1,4 +1,4 @@
-import { ADD_MOVIE, DELETE_MOVIE, PUT_WATCHED_MOVIE } from "../actions/index";
+import { ADD_MOVIE, DELETE_MOVIE, PUT_WATCHED_MOVIE, FILTER_BY_GENRE } from "../actions/index";
 
 export default function(state = [], action) {
   switch (action.type) {
@@ -24,6 +24,16 @@ export default function(state = [], action) {
       } else {
         return moveToPositionOnList(state, moviePosition, action.payload.originalPosition);
       }
+    }
+    case FILTER_BY_GENRE: {
+      if (action.payload) {
+        state.map(movie => movie.hidden = (movie.genres.find(
+          genre => action.payload.toUpperCase() === genre.toUpperCase()
+        ) === undefined));
+      } else {
+        state.map(movie => movie.hidden = false);
+      }
+      return [...state];
     }
   }
   return state;

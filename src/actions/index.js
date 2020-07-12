@@ -1,6 +1,7 @@
 export const ADD_MOVIE = "ADD_MOVIE";
 export const DELETE_MOVIE = "DELETE_MOVIE";
 export const PUT_WATCHED_MOVIE = "PUT_WATCHED_MOVIE";
+export const FILTER_BY_GENRE = "FILTER_BY_GENRE";
 
 export function addMovie(movie) {
   const request = new Promise((resolve) => {
@@ -32,6 +33,17 @@ export function putWatchedMovie(watchedMovieData) {
 
   return {
     type: PUT_WATCHED_MOVIE,
+    payload: request
+  };
+}
+
+export function filterMoviesByGenre(genre) {
+  const request = new Promise((resolve) => {
+    resolve(genre)
+  });
+  
+  return {
+    type: FILTER_BY_GENRE,
     payload: request
   };
 }
