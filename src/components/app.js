@@ -3,6 +3,7 @@ import { Component } from "react";
 import MovieForm from '../containers/movie_form';
 import MoviesList from '../containers/movies_list';
 import MoviesFilter from '../containers/movies_filter';
+import SearchBar from '../containers/search_bar';
 
 export default class App extends Component {
   render() {
@@ -10,6 +11,7 @@ export default class App extends Component {
       <div>
         <MovieForm />
         <MoviesFilter />
+        <SearchBar />
         <MoviesList />
       </div>
     );
