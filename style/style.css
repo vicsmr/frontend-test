@@ -1,0 +1,30 @@
+td, th {
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.form-control {
+  padding: 8px;
+  margin: 12px;
+}
+
+.btn {
+  margin: 12px;
+}
+
+.input-group {
+  margin: 20px 0px;
+}
+
+svg {
+  height: 150px;
+}
+
+th, td, td > div {
+  padding-top: 40px;
+  width: 150px;
+}
