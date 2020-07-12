@@ -28,7 +28,7 @@ class MoviesFilter extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="flex">
 				<RadioButton name={GENRE} id={HORROR} title="Horror" value={HORROR} filter={this.state.filter}
 					changeFilterGenre={this.changeFilterGenre}
 				/>
@@ -39,7 +39,7 @@ class MoviesFilter extends Component {
 					changeFilterGenre={this.changeFilterGenre}
 				/>
 
-				<button onClick={() => this.changeFilterGenre(null)}>Reset</button>
+				<button className="btn" onClick={() => this.changeFilterGenre(null)}>Reset</button>
 			</div>
 		);
 	}

@@ -29,15 +29,15 @@ class SearchBar extends Component {
 
 	render() {
 		return (
-			<form onSubmit={(event) => this.searchMovie(event)} className="input-group flex">
+			<form onSubmit={(event) => this.searchMovie(event)} className="flex">
 				<input
 					placeholder="Search text"
 					name="searchParam"
-					className="form-control inline"
+					className="form-control input-text"
 					value={this.state.searchParam}
 					onChange={this.handleInputChange}
 				/>
-				<button type="submit">Search</button>
+				<button type="submit" className="btn">Search</button>
 			</form>
 		);
 	}

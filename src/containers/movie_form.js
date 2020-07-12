@@ -82,18 +82,18 @@ class MovieForm extends Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.preventSubmit} className="input-group flex">
+				<form onSubmit={this.preventSubmit} className="flex">
 					<input
 						placeholder="Name"
 						name="name"
-						className="form-control inline"
+						className="form-control input-text"
 						value={this.state.movieToAdd.name}
 						onChange={this.handleInputChange}
 					/>
 					<input
 						placeholder="Genre"
 						name="genre"
-						className="form-control"
+						className="form-control input-text"
 						value={this.state.selectedGenre}
 						onChange={this.handleGenresListChange}
 						onKeyPress={this.addGenreToList}

@@ -1,3 +1,12 @@
+.content {
+  margin: 18px;
+  font-size: 16px;
+}
+
+.input-radio {
+  margin-right: 8px;
+}
+
 td, th {
   vertical-align: middle !important;
   text-align: center !important;
@@ -7,6 +16,14 @@ td, th {
   display: flex;
 }
 
+.control-radio {
+  margin: 12px;
+}
+
+.input-text {
+  border: 0.5px solid darkgrey;
+}
+
 .form-control {
   padding: 8px;
   margin: 12px;
@@ -14,6 +31,7 @@ td, th {
 
 .btn {
   margin: 12px;
+  padding: 8px;
 }
 
 .input-group {
