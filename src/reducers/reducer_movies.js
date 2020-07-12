@@ -1,4 +1,4 @@
-import { ADD_MOVIE } from "../actions/index";
+import { ADD_MOVIE, DELETE_MOVIE, PUT_WATCHED_MOVIE } from "../actions/index";
 
 export default function(state = [], action) {
   switch (action.type) {
@@ -8,6 +8,37 @@ export default function(state = [], action) {
       action.payload.hidden = false;
       return [action.payload, ...state];
     }
+    case DELETE_MOVIE: {
+      const moviePosition = state.findIndex(movie => action.payload.name === movie.name);
+      const originalPositionMovieToDelete = state[moviePosition].originalPosition;
+      const moviesListLength = state.length;
+      const restList = state.splice(moviePosition, moviesListLength - moviePosition);
+      restList.map(movie => movie.originalPosition > originalPositionMovieToDelete ? movie.originalPosition-- : movie);
+      const newOrderList = state.concat(restList);
+      return newOrderList.filter(movie => movie.name !== action.payload.name);
+    }
+    case PUT_WATCHED_MOVIE: {
+      const moviePosition = state.findIndex(movie => action.payload.name === movie.name);
+      if (action.payload.watched === 'true') {
+        return moveToTheEndOfList(state, moviePosition);
+      } else {
+        return moveToPositionOnList(state, moviePosition, action.payload.originalPosition);
+      }
+    }
   }
   return state;
+}
+
+function moveToTheEndOfList(list, itemToMove) {
+  let newList =[...list];
+  let cutOut = newList.splice(itemToMove, 1) [0];
+  newList.push(cutOut);
+  return newList;
+}
+
+function moveToPositionOnList(list, itemToMove, positionToMove) {
+  let newList =[...list];
+  let cutOut = newList.splice(itemToMove, 1) [0];
+  newList.splice(positionToMove, 0, cutOut);
+  return newList;
 }
