@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { filterMoviesByGenre } from "../actions/index";
 import RadioButton from "../components/radio_button";
+import PropTypes from 'prop-types';
 
 const HORROR = 'horror';
 const ROMANCE = 'romance';
@@ -45,6 +46,10 @@ class MoviesFilter extends Component {
 	}
 
 }
+
+MoviesFilter.propTypes = {
+	filterMoviesByGenre: PropTypes.func
+};
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ filterMoviesByGenre }, dispatch);

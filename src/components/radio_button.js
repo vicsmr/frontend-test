@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 class RadioButton extends Component {
 	render() {
@@ -14,5 +15,14 @@ class RadioButton extends Component {
 		);
 	}
 }
+
+RadioButton.propTypes = {
+	id: PropTypes.string,
+	name: PropTypes.string,
+	value: PropTypes.string,
+	title: PropTypes.string,
+	filter: PropTypes.string,
+	changeFilterGenre: PropTypes.func
+};
 
 export default RadioButton;

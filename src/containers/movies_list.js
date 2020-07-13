@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { deleteMovie, putWatchedMovie } from "../actions/index";
+import PropTypes from 'prop-types';
 
 class MoviesList extends Component {
 
@@ -46,7 +47,7 @@ class MoviesList extends Component {
 
   render() {
     return (
-      <div class="list-elements">
+      <div className="list-elements">
         <table className="table table-hover">
           <thead>
             <tr>
@@ -64,6 +65,12 @@ class MoviesList extends Component {
     );
   }
 }
+
+MoviesList.propTypes = {
+  deleteMovie: PropTypes.func,
+  putWatchedMovie: PropTypes.func,
+  movies: PropTypes.array
+};
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ deleteMovie, putWatchedMovie }, dispatch);

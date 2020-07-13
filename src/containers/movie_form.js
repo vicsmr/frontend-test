@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { addMovie } from "../actions/index";
+import PropTypes from 'prop-types';
 
 class MovieForm extends Component {
 
@@ -108,6 +109,10 @@ class MovieForm extends Component {
 		);
 	}
 }
+
+MovieForm.propTypes = {
+	addMovie: PropTypes.func
+};
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ addMovie }, dispatch);

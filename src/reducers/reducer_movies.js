@@ -1,15 +1,19 @@
 import { ADD_MOVIE, DELETE_MOVIE, PUT_WATCHED_MOVIE, FILTER_BY_GENRE, SEARCH_MOVIE } from "../actions/index";
 
+var idGenerator = 1;
+
 export default function(state = [], action) {
   switch (action.type) {
     case ADD_MOVIE: {
+      action.payload.id = idGenerator;
+      idGenerator++;
       return addMovie(state, action.payload);
     }
     case DELETE_MOVIE: {
-      return deleteMovie(state, action.payload.name);
+      return deleteMovie(state, action.payload.id);
     }
     case PUT_WATCHED_MOVIE: {
-      const moviePosition = state.findIndex(movie => action.payload.name === movie.name);
+      const moviePosition = state.findIndex(movie => action.payload.id === movie.id);
       if (action.payload.watched === 'true') {
         return moveToTheEndOfList(state, moviePosition);
       } else {
@@ -53,13 +57,13 @@ function filterMoviesByGenre(state, genreFilter) {
   return [...state];
 }
 
-function deleteMovie(state, movieName) {
-  const newOrderList = reorderListWhenDelete(state, movieName);
-  return newOrderList.filter(movie => movie.name !== movieName);
+function deleteMovie(state, movieId) {
+  const newOrderList = reorderListWhenDelete(state, movieId);
+  return newOrderList.filter(movie => movie.id !== movieId);
 }
 
-function reorderListWhenDelete(state, movieName) {
-  const moviePosition = state.findIndex(movie => movieName === movie.name);
+function reorderListWhenDelete(state, movieId) {
+  const moviePosition = state.findIndex(movie => movieId === movie.id);
   const originalPositionMovieToDelete = state[moviePosition].originalPosition;
   const moviesListLength = state.length;
   const restList = state.splice(moviePosition, moviesListLength - moviePosition);
