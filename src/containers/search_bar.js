@@ -22,14 +22,11 @@ class SearchBar extends Component {
 	searchMovie = (event) => {
 		event.preventDefault();
 		this.props.searchMovie(this.state.searchParam);
-		this.setState({
-			searchParam: ''
-		})
 	}
 
 	render() {
 		return (
-			<form onSubmit={(event) => this.searchMovie(event)} className="flex">
+			<form onSubmit={(event) => this.searchMovie(event)} className="section flex">
 				<input
 					placeholder="Search text"
 					name="searchParam"

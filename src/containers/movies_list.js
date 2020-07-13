@@ -38,7 +38,7 @@ class MoviesList extends Component {
           </td>
           <td>{name}</td>
           <td>{this.listGenres(genres)}</td>
-          <td><button onClick={() => this.removeMovie(movieData)}>Delete</button></td>
+          <td><button className="btn" onClick={() => this.removeMovie(movieData)}>Delete</button></td>
         </tr>
       );
     }
@@ -46,7 +46,7 @@ class MoviesList extends Component {
 
   render() {
     return (
-      <div>
+      <div class="list-elements">
         <table className="table table-hover">
           <thead>
             <tr>

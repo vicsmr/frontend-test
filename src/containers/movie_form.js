@@ -81,7 +81,7 @@ class MovieForm extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="section">
 				<form onSubmit={this.preventSubmit} className="flex">
 					<input
 						placeholder="Name"
@@ -101,7 +101,8 @@ class MovieForm extends Component {
 				</form>
 				<ul>{this.listGenres()}</ul>
 				<span className="input-group-btn">
-					<button onClick={this.onFormSubmit} className="btn">Submit</button>
+					<button disabled={this.state.movieToAdd.name === '' || this.state.movieToAdd.genres.length === 0} 
+                  onClick={this.onFormSubmit} className="btn">Submit</button>
 				</span>
 			</div>
 		);
