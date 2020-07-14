@@ -75,8 +75,20 @@ th {
 
 tr:nth-child(even) {background-color: #f2f2f2;}
 
+.margin-top {
+  margin-top: 12px;;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
 @media (max-width: 600px) {
   th, td, td > div {
-    padding: 10px;
+    padding: 8px;
+  }
+
+  .block-mobile {
+    display: block;
   }
 }

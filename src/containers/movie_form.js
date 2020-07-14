@@ -83,7 +83,7 @@ class MovieForm extends Component {
 	render() {
 		return (
 			<div className="section">
-				<form onSubmit={this.preventSubmit} className="flex">
+				<form onSubmit={this.preventSubmit} className="flex block-mobile">
 					<input
 						placeholder="Name"
 						name="name"

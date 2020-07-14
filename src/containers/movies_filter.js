@@ -29,7 +29,7 @@ class MoviesFilter extends Component {
 
 	render() {
 		return (
-			<div className="flex">
+			<div className="flex block-mobile margin-top">
 				<RadioButton name={GENRE} id={HORROR} title="Horror" value={HORROR} filter={this.state.filter}
 					changeFilterGenre={this.changeFilterGenre}
 				/>
